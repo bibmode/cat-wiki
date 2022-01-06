@@ -25,7 +25,9 @@ const SearchDrawer = () => {
         >
           <CloseIcon />
         </IconButton>
-        <SearchBar />
+        <div className={styles.drawerSearch}>
+          <SearchBar />
+        </div>
       </Container>
     </SwipeableDrawer>
   );

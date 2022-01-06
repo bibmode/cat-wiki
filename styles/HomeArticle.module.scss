@@ -1,5 +1,4 @@
-.container {
-  position: relative;
+.article {
   margin-top: 8rem;
   padding-block: 0.5rem;
 
@@ -7,21 +6,35 @@
     padding-inline: 0;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-    top: -1rem;
-    width: 20%;
-    height: 3.5px;
-    background-color: #4d270c;
-    border-radius: 100px;
+  @media only screen and (min-width: 600px) {
+    display: flex;
+    align-items: center;
+  }
+
+  &Text {
+    @media only screen and (min-width: 600px) {
+      width: 60%;
+      margin-right: 10rem;
+      margin-top: -12rem;
+    }
   }
 
   h3 {
     font-size: 4rem;
     font-weight: 700;
     margin-top: 1rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: -1rem;
+      width: 20%;
+      height: 3.5px;
+      background-color: #4d270c;
+      border-radius: 100px;
+    }
   }
 
   p {
@@ -35,6 +48,10 @@
     font-weight: bold;
     font-size: 1.2rem;
     display: flex;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 1.8rem;
+    }
 
     &::after {
       content: "→";
@@ -57,6 +74,10 @@
     "cat2 cat2 cat2 cat3 cat3"
     "cat2 cat2 cat2 cat3 cat3"
     "cat2 cat2 cat2 cat3 cat3";
+
+  @media only screen and (min-width: 600px) {
+    margin-block: 1rem 8rem;
+  }
 
   img {
     width: 100%;

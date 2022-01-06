@@ -6,13 +6,10 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <Container className={styles.footerWrapper}>
-        <Image
+        <img
           className={styles.footerImage}
           src="/CatwikiLogo.svg"
           alt="cat logo"
-          width={71}
-          height={24}
-          objectFit="cover"
         />
         <div className={styles.footerCredit}>
           <h5>©</h5>

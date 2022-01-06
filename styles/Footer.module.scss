@@ -6,10 +6,18 @@
   &Wrapper {
     padding-inline: 2.8rem;
     padding-block: 3rem 2rem;
+
+    @media only screen and (min-width: 600px) {
+      display: flex;
+      justify-content: space-between;
+      padding-block: 1rem 2rem;
+    }
   }
 
   &Image {
     filter: grayscale(100%) brightness(1300%);
+    width: 70px;
+    height: auto;
   }
 
   &Credit {

@@ -26,7 +26,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <HomeContext.Provider value={{ drawer, setDrawer }}>
         <SearchDrawer />
-        <Container>
+        <Container maxWidth="xl">
           <Header />
           <HomeBanner />
           <HomeArticle />

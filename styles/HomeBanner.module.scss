@@ -7,19 +7,24 @@
 
   display: flex;
   align-items: center;
-  height: 160px;
+  height: 40vw;
+  max-height: 650px;
   width: 100%;
   position: relative;
   color: #fff;
 
   &Wrapper {
-    @media only screen and (max-width: 600px) {
-      width: 140px;
+    width: 140px;
+
+    @media only screen and (min-width: 600px) {
+      width: 380px;
     }
   }
 
   &Logo1 {
     filter: grayscale(100%) brightness(1500%);
+    transform: scale(2.3);
+    margin-left: 9.5rem;
 
     @media only screen and (max-width: 600px) {
       display: none;
@@ -41,10 +46,24 @@
     font-size: 1rem;
     font-weight: 500;
     margin-block: 0.8rem;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 1.8rem;
+      margin-block: 1.8rem 3.5rem;
+    }
+
+    @media only screen and (min-width: 600px) {
+      font-size: 2.4rem;
+    }
   }
 
   &Search {
     &Field {
+      background-color: white;
+      height: fit-content;
+      width: 390px;
+      border-radius: 5.9rem;
+
       @media only screen and (max-width: 600px) {
         display: none;
       }
@@ -68,14 +87,22 @@
 
 .discover {
   background-color: #e3e1dc;
-  padding-block: 2.5rem;
+  padding-block: 2.8rem;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
 
-  a {
+  @media only screen and (min-width: 600px) {
+    padding-block: 3.5rem;
+  }
+
+  &Link {
     font-weight: 500;
     font-size: 1.2rem;
     position: relative;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 1.8rem;
+    }
 
     a:hover {
       font-weight: 800;
@@ -94,31 +121,85 @@
     }
   }
 
-  h3 {
-    font-size: 1.8rem;
-    width: 70%;
-    margin-top: 2.8rem;
+  &Tagline {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 1.8rem;
+      width: 70%;
+      margin-top: 2.8rem;
+
+      @media only screen and (min-width: 600px) {
+        font-size: 4.8rem;
+        width: 60%;
+      }
+    }
+
+    a {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(41, 21, 7, 0.6);
+
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   &Container {
     padding-block: 2.8rem;
     display: flex;
+    position: relative;
 
     justify-content: center;
+
+    @media only screen and (min-width: 600px) {
+      padding-block: 3.8rem;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 17.4rem;
+        background-color: #dec68b;
+        border-radius: 1.4rem;
+        z-index: 1;
+        left: 3rem;
+        bottom: 10rem;
+      }
+    }
   }
 
   &Item {
     // background-color: red;
+    z-index: 10;
 
     img {
       width: 13.4rem;
       height: 13.4rem;
       border-radius: 15px;
+
+      @media only screen and (min-width: 600px) {
+        width: 100%;
+        height: 250px;
+      }
     }
 
     h4 {
       margin-block: 0.8rem 0.3rem;
       font-size: 1.2rem;
+
+      @media only screen and (min-width: 600px) {
+        font-size: 1.8rem;
+      }
     }
   }
 }
