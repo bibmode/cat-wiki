@@ -65,11 +65,11 @@ const HomeBanner = () => {
 
           <Grid
             container
-            spacing={{ xs: 2, md: 6 }}
+            spacing={{ xs: 2, lg: 3 }}
             className={styles.discoverContainer}
           >
             {cats.map((cat, index) => (
-              <Grid item key={index} md={3} className={styles.discoverItem}>
+              <Grid item key={index} lg={3} className={styles.discoverItem}>
                 <img src={cat} alt={`cat-${index}`} />
                 <h4>Cat Name</h4>
               </Grid>
