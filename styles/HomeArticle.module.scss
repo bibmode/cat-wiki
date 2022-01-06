@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  margin-top: 8rem;
+  padding-block: 0.5rem;
+
+  @media only screen and (max-width: 600px) {
+    padding-inline: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -1rem;
+    width: 20%;
+    height: 3.5px;
+    background-color: #4d270c;
+    border-radius: 100px;
+  }
+
+  h3 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: 1rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    padding-block: 5rem 3rem;
+  }
+
+  a {
+    color: rgba(41, 21, 7, 0.6);
+    font-weight: 700;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+
+    &::after {
+      content: "→";
+      display: block;
+      color: #7f736a;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.collage {
+  margin-block: 7rem 2rem;
+  display: grid;
+  grid-gap: 1.8rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "cat1 cat1 cat1 cat3 cat3"
+    "cat1 cat1 cat1 cat3 cat3"
+    "cat2 cat2 cat2 cat3 cat3"
+    "cat2 cat2 cat2 cat3 cat3"
+    "cat2 cat2 cat2 cat3 cat3";
+
+  img {
+    width: 100%;
+  }
+
+  &Cat1 {
+    grid-area: cat1;
+  }
+
+  &Cat3 {
+    grid-area: cat2;
+    width: 70% !important;
+    justify-self: right;
+  }
+
+  &Cat2 {
+    grid-area: cat3;
+  }
+}

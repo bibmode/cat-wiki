@@ -2,8 +2,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  font-weight: 500;
+  color: #291507;
 }
 
 a {
@@ -13,4 +18,15 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.css-1nvnyqx-MuiPaper-root-MuiDrawer-paper {
+  height: 100%;
+}
+
+/* search bar in drawer */
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 0;
 }
