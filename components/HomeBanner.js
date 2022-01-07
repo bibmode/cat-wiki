@@ -1,19 +1,13 @@
-import {
-  Button,
-  Container,
-  Grid,
-  imageListClasses,
-  TextField,
-} from "@mui/material";
+import { Button, Container, Grid } from "@mui/material";
 import CatLogo from "../public/CatwikiLogo.svg";
 import styles from "../styles/HomeBanner.module.scss";
 
 import Search from "@mui/icons-material/Search";
 import Image from "next/image";
-import { HomeContext } from "../pages";
 import { useContext } from "react";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
+import { AppContext } from "./Layout";
 
 const cats = [
   "https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_square.jpg",
@@ -23,7 +17,8 @@ const cats = [
 ];
 
 const HomeBanner = () => {
-  const { setDrawer } = useContext(HomeContext);
+  const { setDrawer, navigateBreedDetail } = useContext(AppContext);
+
   return (
     <>
       <div className={styles.banner}>
@@ -58,20 +53,22 @@ const HomeBanner = () => {
 
           <div className={styles.discoverTagline}>
             <h3>66+ Breeds For you to discover</h3>
-            <Link className={styles.discoverTaglineLink} href="*">
+            <Link className={styles.discoverTaglineLink} href="/most-searched">
               See more →
             </Link>
           </div>
 
           <Grid
             container
-            spacing={{ xs: 2, lg: 3 }}
+            spacing={{ xs: 2, lg: 6 }}
             className={styles.discoverContainer}
           >
             {cats.map((cat, index) => (
               <Grid item key={index} lg={3} className={styles.discoverItem}>
-                <img src={cat} alt={`cat-${index}`} />
-                <h4>Cat Name</h4>
+                <button onClick={() => navigateBreedDetail(index)}>
+                  <img src={cat} alt={`cat-${index}`} />
+                  <h4>Cat Name</h4>
+                </button>
               </Grid>
             ))}
           </Grid>

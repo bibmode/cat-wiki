@@ -1,0 +1,36 @@
+.container {
+  h1 {
+    font-size: 3.6rem;
+    margin-block: 2rem 4rem;
+  }
+}
+
+.breed {
+  display: flex;
+
+  &Image {
+    width: 17rem;
+    height: 17rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2.4rem;
+    }
+  }
+
+  &Details {
+    h2 {
+      font-size: 3.6rem;
+      margin-bottom: 2.4rem;
+    }
+
+    p {
+      max-width: 90rem;
+      font-size: 1.8rem;
+    }
+  }
+}

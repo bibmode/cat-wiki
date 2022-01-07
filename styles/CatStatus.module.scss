@@ -1,0 +1,31 @@
+.status {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-right: auto;
+    margin-block: 1.5rem;
+  }
+}
+
+.bars {
+  display: flex;
+
+  & > * {
+    width: 60px;
+    height: 12px;
+    border-radius: 0.8rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &Active {
+    background-color: #544439;
+  }
+
+  &Inactive {
+    background-color: #e0e0e0;
+  }
+}

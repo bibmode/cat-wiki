@@ -5,9 +5,10 @@ import styles from "../styles/SearchDrawer.module.scss";
 
 import CloseIcon from "@mui/icons-material/Close";
 import SearchBar from "./SearchBar";
+import { AppContext } from "./Layout";
 
 const SearchDrawer = () => {
-  const { drawer, setDrawer } = useContext(HomeContext);
+  const { drawer, setDrawer } = useContext(AppContext);
 
   return (
     <SwipeableDrawer
