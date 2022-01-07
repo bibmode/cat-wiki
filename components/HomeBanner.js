@@ -47,9 +47,9 @@ const HomeBanner = () => {
 
       <div className={styles.discover}>
         <Container sx={{ px: 3.5 }}>
-          <a className={styles.discoverLink} href="*">
+          <Link className={styles.discoverLink} href="/most-searched">
             Most Searched Breeds
-          </a>
+          </Link>
 
           <div className={styles.discoverTagline}>
             <h3>66+ Breeds For you to discover</h3>
@@ -60,11 +60,18 @@ const HomeBanner = () => {
 
           <Grid
             container
-            spacing={{ xs: 2, lg: 6 }}
+            spacing={{ xs: 1, sm: 3, lg: 6 }}
             className={styles.discoverContainer}
           >
             {cats.map((cat, index) => (
-              <Grid item key={index} lg={3} className={styles.discoverItem}>
+              <Grid
+                item
+                key={index}
+                xs={6}
+                md={4}
+                lg={3}
+                className={styles.discoverItem}
+              >
                 <button onClick={() => navigateBreedDetail(index)}>
                   <img src={cat} alt={`cat-${index}`} />
                   <h4>Cat Name</h4>

@@ -16,9 +16,16 @@ const OtherPhotos = () => {
   return (
     <div className={styles.wrapper}>
       <h2>Other photos</h2>
-      <Grid container spacing={4} className={styles.cat}>
+      <Grid container spacing={{ xs: 1, sm: 2, md: 4 }} className={styles.cat}>
         {photos.map((cat, index) => (
-          <Grid key={index} item xs={6} sm={4} md={3}>
+          <Grid
+            key={index}
+            item
+            xs={6}
+            sm={4}
+            md={3}
+            className={styles.catItem}
+          >
             <img className={styles.catPhoto} src={cat} alt="cat" />
           </Grid>
         ))}

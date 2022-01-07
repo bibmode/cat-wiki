@@ -6,6 +6,7 @@ import styles from "../styles/HomeArticle.module.scss";
 import sleepyCat from "../public/image 2.png";
 import catPaw from "../public/image 1.png";
 import catInBag from "../public/image 3.png";
+import Link from "next/link";
 
 const HomeArticle = () => {
   return (
@@ -16,7 +17,7 @@ const HomeArticle = () => {
           Having a cat around you can actually trigger the release of calming
           chemicals in your body which lower your stress and anxiety levels
         </p>
-        <a href="*">READ MORE </a>
+        <Link href="/">READ MORE </Link>
       </div>
 
       <div className={`${styles.collage} ${styles.articleCollage}`}>
