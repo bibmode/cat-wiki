@@ -59,9 +59,10 @@ const Layout = (props) => {
 
   const getMatches = (searchData, userInput) => {
     const matches = searchData.filter((data) =>
-      data.name.toLowerCase().includes(userInput)
+      data.name.toLowerCase().match(new RegExp(`(^${userInput})`, "g"))
     );
     setInputMatch(matches);
+    console.log(matches);
   };
 
   return (

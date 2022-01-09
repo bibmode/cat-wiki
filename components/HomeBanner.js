@@ -54,8 +54,8 @@ const HomeBanner = ({ cats, searchData }) => {
               }`}
             >
               <List className={styles.optionsList}>
-                {inputMatch?.map((match) => (
-                  <>
+                {inputMatch?.map((match, index) => (
+                  <div key={index}>
                     <ListItem
                       onClick={() => navigateBreedDetail(match.id)}
                       className={styles.optionsItem}
@@ -64,7 +64,7 @@ const HomeBanner = ({ cats, searchData }) => {
                       <ListItemText primary={match.name} />
                     </ListItem>
                     <Divider />
-                  </>
+                  </div>
                 ))}
               </List>
             </div>
