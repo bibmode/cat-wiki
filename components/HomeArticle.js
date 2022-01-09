@@ -7,17 +7,32 @@ import sleepyCat from "../public/image 2.png";
 import catPaw from "../public/image 1.png";
 import catInBag from "../public/image 3.png";
 import Link from "next/link";
+import { useState } from "react";
 
 const HomeArticle = () => {
+  const [line, setLine] = useState(styles.lineShort);
+
   return (
     <Container className={styles.article}>
       <div className={styles.articleText}>
-        <h3>Why should you have a cat?</h3>
+        <h3 className={`${line}`}>Why should you have a cat?</h3>
         <p>
           Having a cat around you can actually trigger the release of calming
           chemicals in your body which lower your stress and anxiety levels
         </p>
-        <Link href="/">READ MORE </Link>
+        <div
+          className={styles.articleTextLink}
+          onMouseOver={() => setLine(styles.lineLong)}
+          onMouseOut={() => setLine(styles.lineShort)}
+        >
+          <a
+            href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm#:~:text=Owning%20a%20cat%20can%20bring,be%20an%20extremely%20rewarding%20relationship.&text=Any%20cat%20owner%20will%20tell,them%20to%20relax%20and%20unwind."
+            target="_blank"
+            rel="noreferrer"
+          >
+            READ MORE{" "}
+          </a>
+        </div>
       </div>
 
       <div className={`${styles.collage} ${styles.articleCollage}`}>

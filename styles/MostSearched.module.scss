@@ -7,16 +7,21 @@
 
 .breed {
   display: flex;
+  margin-bottom: 2rem;
 
   &Image {
     width: 17rem;
     height: 17rem;
     margin-right: 5rem;
     margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
       border-radius: 2.4rem;
     }

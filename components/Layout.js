@@ -29,6 +29,19 @@ export const AppContext = createContext("");
 const Layout = (props) => {
   const [drawer, setDrawer] = useState(false);
 
+  const mostSearchedBreeds = [
+    "ragdoll",
+    "exotic",
+    "maine",
+    "persian",
+    "britishshorthair",
+    "devon",
+    "abyssinian",
+    "americanshorthair",
+    "scottishfold",
+    "sphynx",
+  ];
+
   const router = useRouter();
 
   const navigateBreedDetail = (id) => {
@@ -43,7 +56,13 @@ const Layout = (props) => {
     <div className={styles.layout}>
       <ThemeProvider theme={theme}>
         <AppContext.Provider
-          value={{ drawer, setDrawer, navigateBreedDetail, navigateHome }}
+          value={{
+            drawer,
+            setDrawer,
+            navigateBreedDetail,
+            navigateHome,
+            mostSearchedBreeds,
+          }}
         >
           <SearchDrawer />
           <Container maxWidth="xl" className={styles.wrapper}>

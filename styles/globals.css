@@ -4,6 +4,7 @@ body {
   margin: 0;
 
   font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
 }
 
 html {
@@ -49,6 +50,11 @@ a {
   .MuiContainer-root {
     padding-inline: 4rem !important;
   }
+}
+
+.css-h4y409-MuiList-root {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* } */

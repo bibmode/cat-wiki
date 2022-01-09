@@ -1,13 +1,45 @@
+import { useRouter } from "next/router";
 import BreedDetail from "../components/BreedDetail";
 import OtherPhotos from "../components/OtherPhotos";
+import { getBreedData } from "../utils/data";
 
-const BreedDetailPage = () => {
+const BreedDetailPage = (props) => {
   return (
     <>
-      <BreedDetail />
-      <OtherPhotos />
+      <BreedDetail cat={props.cat} />
+      <OtherPhotos images={props.images} />
     </>
   );
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const catId = params.catId;
+
+  const req1 = await getBreedData(catId);
+  const cat = await req1;
+
+  const images = [];
+
+  for (let index = 0; index < 8; index++) {
+    const req2 = await getBreedData(catId);
+    const image = await req2.url;
+
+    images.push(image);
+  }
+
+  return {
+    props: {
+      cat,
+      images,
+    },
+  };
 };
 
 export default BreedDetailPage;

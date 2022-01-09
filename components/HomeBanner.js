@@ -1,23 +1,40 @@
-import { Button, Container, Grid } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import CatLogo from "../public/CatwikiLogo.svg";
 import styles from "../styles/HomeBanner.module.scss";
 
 import Search from "@mui/icons-material/Search";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 import { AppContext } from "./Layout";
+import { getAllBreeds } from "../utils/data";
 
-const cats = [
-  "https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_square.jpg",
-  "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
-  "https://petkeen.com/wp-content/uploads/2020/06/black-cat-on-top-of-car.jpg",
-  "https://nenow.in/wp-content/uploads/2020/04/cat-image-2.jpg",
-];
-
-const HomeBanner = () => {
+const HomeBanner = ({ cats, searchData }) => {
   const { setDrawer, navigateBreedDetail } = useContext(AppContext);
+
+  const [line, setLine] = useState(styles.lineShort);
+  const [userInput, setUserInput] = useState(null);
+  const [inputMatch, setInputMatch] = useState([]);
+
+  const getMatches = () => {
+    const matches = searchData.filter((data) =>
+      data.name.toLowerCase().includes(userInput)
+    );
+    setInputMatch(matches);
+  };
+
+  useEffect(() => {
+    getMatches();
+  }, [userInput]);
 
   return (
     <>
@@ -30,7 +47,20 @@ const HomeBanner = () => {
               Get to know more about your cat breed
             </h2>
             <div className={styles.bannerSearchField}>
-              <SearchBar />
+              <SearchBar setUserInput={setUserInput} />
+            </div>
+
+            <div className={styles.options}>
+              <List className={styles.optionsList}>
+                {inputMatch?.map((match) => (
+                  <>
+                    <ListItem className={styles.optionsItem} button>
+                      <ListItemText primary={match.name} />
+                    </ListItem>
+                    <Divider />
+                  </>
+                ))}
+              </List>
             </div>
 
             <Button
@@ -47,15 +77,19 @@ const HomeBanner = () => {
 
       <div className={styles.discover}>
         <Container sx={{ px: 3.5 }}>
-          <Link className={styles.discoverLink} href="/most-searched">
-            Most Searched Breeds
-          </Link>
+          <div className={styles.discoverTitle}>
+            <h4 className={line}>Most Searched Breeds</h4>
+          </div>
 
           <div className={styles.discoverTagline}>
             <h3>66+ Breeds For you to discover</h3>
-            <Link className={styles.discoverTaglineLink} href="/most-searched">
-              See more →
-            </Link>
+            <div
+              className={styles.discoverLink}
+              onMouseOver={() => setLine(styles.lineLong)}
+              onMouseOut={() => setLine(styles.lineShort)}
+            >
+              <Link href="/most-searched">See more →</Link>
+            </div>
           </div>
 
           <Grid
@@ -63,7 +97,7 @@ const HomeBanner = () => {
             spacing={{ xs: 1, sm: 3, lg: 6 }}
             className={styles.discoverContainer}
           >
-            {cats.map((cat, index) => (
+            {[...cats]?.map((cat, index) => (
               <Grid
                 item
                 key={index}
@@ -72,9 +106,14 @@ const HomeBanner = () => {
                 lg={3}
                 className={styles.discoverItem}
               >
-                <button onClick={() => navigateBreedDetail(index)}>
-                  <img src={cat} alt={`cat-${index}`} />
-                  <h4>Cat Name</h4>
+                <button
+                  onClick={() => navigateBreedDetail(`${cat.cat.breeds[0].id}`)}
+                >
+                  <div className={styles.discoverImage}>
+                    <img src={cat.cat.url} alt={`${cat.cat.breeds[0].name}`} />
+                  </div>
+
+                  <h4>{cat.cat.breeds[0].name}</h4>
                 </button>
               </Grid>
             ))}

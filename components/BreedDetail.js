@@ -1,70 +1,50 @@
 import { Container } from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import styles from "../styles/BreedDetail.module.scss";
 import CatStatus from "./CatStatus";
 
-const BreedDetail = () => {
+const BreedDetail = ({ cat }) => {
   const specifications = [
-    {
-      name: "Adaptability",
-      stats: 5,
-    },
-    {
-      name: "Affection Level",
-      stats: 5,
-    },
-    {
-      name: "Child Friendly",
-      stats: 4,
-    },
-    {
-      name: "Grooming",
-      stats: 1,
-    },
-    {
-      name: "Intelligence",
-      stats: 5,
-    },
-    {
-      name: "Health Issues",
-      stats: 3,
-    },
-    {
-      name: "Social Needs",
-      stats: 5,
-    },
-    {
-      name: "Stranger Friendly",
-      stats: 3,
-    },
+    "adaptability",
+    "affection_level",
+    "child_friendly",
+    "grooming",
+    "intelligence",
+    "health_issues",
+    "social_needs",
+    "stranger_friendly",
   ];
+
+  const details = cat.breeds[0];
+
   return (
     <Container className={styles.breed}>
       <div className={styles.breedImage}>
-        <img
-          src="https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_square.jpg"
-          alt="cat detail"
-        />
+        <img src={cat.url} alt="cat detail" />
       </div>
       <div className={styles.breedDetails}>
         <div className={styles.breedDetailsWrapper}>
-          <h2>Bengal</h2>
+          <h2>{details.name}</h2>
+          <p>{details.description}</p>
           <p>
-            {`Bengals are a lot of fun to live with, but they're definitely not the
-          cat for everyone, or for first-time cat owners. Extremely intelligent,
-          curious and active, they demand a lot of interaction and woe betide
-          the owner who doesn't provide it.`}
+            <b>Temperament: </b>
+            {details.temperament}
           </p>
           <p>
-            <b>Temperament:</b> Alert, Agile, Energetic, Demanding, Intelligent
+            <b>Origin:</b> {details.origin}
           </p>
           <p>
-            <b>Origin:</b> United States
-          </p>
-          <p>
-            <b>Life Span:</b> 12 - 15 years
+            <b>Life Span:</b> {details.life_span} years
           </p>
           {specifications.map((spec, index) => (
-            <CatStatus key={index} stats={spec.stats} name={spec.name} />
+            <CatStatus
+              key={index}
+              stats={details[spec]}
+              name={`${spec[0].toUpperCase()}${spec
+                .slice(1)
+                .replace("_", " ")}`}
+            />
           ))}
         </div>
       </div>
