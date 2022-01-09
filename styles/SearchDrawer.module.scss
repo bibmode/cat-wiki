@@ -17,3 +17,39 @@
     // margin-block: 1rem !important;
   }
 }
+
+.options {
+  background-color: #fff;
+  color: #291507;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: scroll;
+  margin-top: 1rem;
+  z-index: 1000 !important;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 5px;
+    height: 90%;
+    // border-top-right-radius: 50%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #8b888178;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+
+  &List {
+    font-size: 1.8rem;
+    width: 100%;
+  }
+
+  &Item {
+    width: 100%;
+  }
+}

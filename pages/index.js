@@ -1,10 +1,12 @@
 import HomeArticle from "../components/HomeArticle";
 import HomeBanner from "../components/HomeBanner";
+import SearchDrawer from "../components/SearchDrawer";
 import { mostSearchedBreeds, getBreedData, getAllBreeds } from "../utils/data";
 
 export default function Home(props) {
   return (
     <div>
+      <SearchDrawer searchData={props.searchData} />
       <HomeBanner cats={props.cats} searchData={props.searchData} />
       <HomeArticle />
     </div>

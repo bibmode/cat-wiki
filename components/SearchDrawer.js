@@ -1,5 +1,13 @@
-import { IconButton, SwipeableDrawer, Container } from "@mui/material";
-import { useContext } from "react";
+import {
+  IconButton,
+  SwipeableDrawer,
+  Container,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from "@mui/material";
+import { useContext, useEffect } from "react";
 import { HomeContext } from "../pages";
 import styles from "../styles/SearchDrawer.module.scss";
 
@@ -7,8 +15,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import SearchBar from "./SearchBar";
 import { AppContext } from "./Layout";
 
-const SearchDrawer = () => {
-  const { drawer, setDrawer } = useContext(AppContext);
+const SearchDrawer = ({ searchData }) => {
+  const {
+    drawer,
+    setDrawer,
+    userInput,
+    setUserInput,
+    inputMatch,
+    getMatches,
+    navigateBreedDetail,
+  } = useContext(AppContext);
+
+  useEffect(() => {
+    getMatches(searchData, userInput);
+  }, [userInput]);
 
   return (
     <SwipeableDrawer
@@ -27,7 +47,30 @@ const SearchDrawer = () => {
           <CloseIcon />
         </IconButton>
         <div className={styles.drawerSearch}>
-          <SearchBar />
+          <SearchBar setUserInput={setUserInput} />
+        </div>
+
+        <div
+          className={`${styles.options} ${
+            inputMatch?.length == 67 && styles.hidden
+          }`}
+        >
+          <List className={styles.optionsList}>
+            {inputMatch?.map((match) => (
+              <>
+                <ListItem
+                  onClick={() => {
+                    navigateBreedDetail(match.id);
+                  }}
+                  className={styles.optionsItem}
+                  button
+                >
+                  <ListItemText primary={match.name} />
+                </ListItem>
+                <Divider />
+              </>
+            ))}
+          </List>
         </div>
       </Container>
     </SwipeableDrawer>

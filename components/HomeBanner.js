@@ -19,21 +19,19 @@ import { AppContext } from "./Layout";
 import { getAllBreeds } from "../utils/data";
 
 const HomeBanner = ({ cats, searchData }) => {
-  const { setDrawer, navigateBreedDetail } = useContext(AppContext);
+  const {
+    setDrawer,
+    navigateBreedDetail,
+    inputMatch,
+    getMatches,
+    userInput,
+    setUserInput,
+  } = useContext(AppContext);
 
   const [line, setLine] = useState(styles.lineShort);
-  const [userInput, setUserInput] = useState(null);
-  const [inputMatch, setInputMatch] = useState([]);
-
-  const getMatches = () => {
-    const matches = searchData.filter((data) =>
-      data.name.toLowerCase().includes(userInput)
-    );
-    setInputMatch(matches);
-  };
 
   useEffect(() => {
-    getMatches();
+    getMatches(searchData, userInput);
   }, [userInput]);
 
   return (
@@ -50,11 +48,19 @@ const HomeBanner = ({ cats, searchData }) => {
               <SearchBar setUserInput={setUserInput} />
             </div>
 
-            <div className={styles.options}>
+            <div
+              className={`${styles.options} ${
+                inputMatch?.length == 67 && styles.hidden
+              }`}
+            >
               <List className={styles.optionsList}>
                 {inputMatch?.map((match) => (
                   <>
-                    <ListItem className={styles.optionsItem} button>
+                    <ListItem
+                      onClick={() => navigateBreedDetail(match.id)}
+                      className={styles.optionsItem}
+                      button
+                    >
                       <ListItemText primary={match.name} />
                     </ListItem>
                     <Divider />

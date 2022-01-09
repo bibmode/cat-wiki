@@ -4,7 +4,6 @@ import { createContext, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
 import Footer from "./Footer";
 import Header from "./Header";
-import SearchDrawer from "./SearchDrawer";
 import styles from "../styles/Layout.module.scss";
 
 const theme = createTheme({
@@ -22,12 +21,17 @@ const theme = createTheme({
       xl: 1536,
     },
   },
+  typography: {
+    fontFamily: '"Montserrat", sans-serif',
+  },
 });
 
 export const AppContext = createContext("");
 
 const Layout = (props) => {
   const [drawer, setDrawer] = useState(false);
+  const [inputMatch, setInputMatch] = useState([]);
+  const [userInput, setUserInput] = useState(null);
 
   const mostSearchedBreeds = [
     "ragdoll",
@@ -46,10 +50,18 @@ const Layout = (props) => {
 
   const navigateBreedDetail = (id) => {
     router.push(`/${id}`);
+    setDrawer(false);
   };
 
   const navigateHome = () => {
     router.push("/");
+  };
+
+  const getMatches = (searchData, userInput) => {
+    const matches = searchData.filter((data) =>
+      data.name.toLowerCase().includes(userInput)
+    );
+    setInputMatch(matches);
   };
 
   return (
@@ -62,9 +74,13 @@ const Layout = (props) => {
             navigateBreedDetail,
             navigateHome,
             mostSearchedBreeds,
+            inputMatch,
+            setInputMatch,
+            getMatches,
+            userInput,
+            setUserInput,
           }}
         >
-          <SearchDrawer />
           <Container maxWidth="xl" className={styles.wrapper}>
             <Header />
             <main>{props.children}</main>
