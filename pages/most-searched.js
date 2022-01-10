@@ -7,6 +7,7 @@ const MostSearchedPage = (props) => {
     <>
       <Head>
         <title>CatWiki | Top 10</title>
+        <link rel="icon" href="devchallenges.png" />
         <meta name="description" content="Top 10 most searched cat breeds!" />
       </Head>
       <MostSearched cats={props.cats} />

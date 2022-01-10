@@ -9,6 +9,7 @@ export default function Home(props) {
     <>
       <Head>
         <title>CatWiki</title>
+        <link rel="icon" href="devchallenges.png" />
         <meta
           name="description"
           content="Browse cat breeds and learn more about your favorite cats!"

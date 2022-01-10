@@ -8,6 +8,7 @@ const BreedDetailPage = (props) => {
     <>
       <Head>
         <title>{`CatWiki | ${props.cat.breeds[0].name}`}</title>
+        <link rel="icon" href="devchallenges.png" />
         <meta
           name="description"
           content={`${props.cat.breeds[0].description}`}
