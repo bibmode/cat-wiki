@@ -91,3 +91,4 @@ $ npm run dev
 ## Contact
 
 - GitHub [@bibmode](https://github.com/bibmode)
+- Email - vievenavales29@gmail.com
