@@ -7,12 +7,11 @@ import { styled } from "@mui/material";
 const Search = styled(OutlinedInput)(({ theme }) => ({
   borderRadius: "5.9rem",
   fontSize: "1.8rem",
-  // padding: "1rem",
   width: "100%",
   display: "flex",
-  [theme.breakpoints.down("md")]: {
-    display: "none",
-  },
+  // [theme.breakpoints.down("md")]: {
+  //   display: "none",
+  // },
 }));
 
 const SearchBar = ({ setUserInput }) => {
