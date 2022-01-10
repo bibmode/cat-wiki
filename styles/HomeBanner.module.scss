@@ -19,7 +19,6 @@
   color: #fff;
 
   &Wrapper {
-    // width: clamp(140px, 10vw, 300px);
     width: clamp(15rem, 50vw, 38%);
 
     @media only screen and (min-width: 900px) {
@@ -64,6 +63,8 @@
       height: fit-content;
       width: 390px;
       border-radius: 5.9rem;
+      margin-top: 2rem;
+      margin-left: -0.5rem;
 
       @media only screen and (max-width: 900px) {
         display: none;
