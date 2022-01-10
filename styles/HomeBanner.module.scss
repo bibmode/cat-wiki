@@ -19,7 +19,8 @@
   color: #fff;
 
   &Wrapper {
-    width: 140px;
+    // width: clamp(140px, 10vw, 300px);
+    width: clamp(15rem, 50vw, 38%);
 
     @media only screen and (min-width: 900px) {
       width: 380px;
@@ -40,7 +41,7 @@
     color: #fff;
     font-family: "Mystery Quest", cursive;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: clamp(1.5rem, 4vw, 5rem);
 
     @media only screen and (min-width: 900px) {
       display: none;
@@ -48,14 +49,9 @@
   }
 
   &Text {
-    font-size: 1rem;
+    font-size: clamp(1rem, 3vw, 1.8rem);
     font-weight: 500;
     margin-block: 0.8rem;
-
-    @media only screen and (min-width: 900px) {
-      font-size: 1.8rem;
-      margin-block: 1.8rem 3.5rem;
-    }
 
     @media only screen and (min-width: 900px) {
       font-size: 2.4rem;
@@ -76,7 +72,8 @@
 
     &Btn {
       border-radius: 15px;
-      margin-block: 1rem;
+      margin-bottom: 1rem;
+      margin-left: -2px;
       text-transform: capitalize;
       font-size: 1.2rem;
       font-family: "Montserrat";
@@ -127,12 +124,12 @@
     }
 
     h3 {
-      font-size: 1.8rem;
+      font-size: clamp(1.8rem, 5vw, 4.8rem);
       width: 70%;
       margin-top: 2.8rem;
 
       @media only screen and (min-width: 600px) {
-        font-size: 4.8rem;
+        // font-size: 4.8rem;
         width: 60%;
       }
     }
@@ -265,6 +262,7 @@
 
   &List {
     font-size: 1.8rem;
+    border-radius: 2.3rem;
     width: 100%;
   }
 

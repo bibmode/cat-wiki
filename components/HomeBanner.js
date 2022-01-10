@@ -108,8 +108,7 @@ const HomeBanner = ({ cats, searchData }) => {
                 item
                 key={index}
                 xs={6}
-                md={4}
-                lg={3}
+                md={3}
                 className={styles.discoverItem}
               >
                 <button
