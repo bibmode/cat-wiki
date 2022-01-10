@@ -41,11 +41,11 @@
 
 FAQs:
 
-- Where can I see your demo?
+- <b>Where can I see your demo?</b>
   You can see it here <a href="https://catwiki-gen.vercel.app/">Demo</a>
-- What was your experience?
+- <b>What was your experience?</b>
   Building this app with NextJS was a great learning experience for me. I learned static page generation with Next instead of requesting the API in the client side. NextJS is great because it is like a fullstack React framework with awesome built in features.
-- What have you learned/improved?
+- <b>What have you learned/improved?</b>
   This is the 3rd NextJS application I built and I learned how to use NextJS's getStaticProps and getStaticPaths. I also learned that Material UI in NextJS caused some issues during production because NextJS adds extra classes about components unless if I personally use MUI's styled feature. NextJS also allowed me to be improve my project folder system and I am able to better categorize my files based on their functions.
 
 ### Built With
