@@ -1,4 +1,6 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import BreedDetail from "../components/BreedDetail";
 import OtherPhotos from "../components/OtherPhotos";
 import { getBreedData } from "../utils/data";
@@ -6,6 +8,13 @@ import { getBreedData } from "../utils/data";
 const BreedDetailPage = (props) => {
   return (
     <>
+      <Head>
+        <title>{`CatWiki | ${props.cat.breeds[0].name}`}</title>
+        <meta
+          name="description"
+          content={`${props.cat.breeds[0].description}`}
+        />
+      </Head>
       <BreedDetail cat={props.cat} />
       <OtherPhotos images={props.images} />
     </>
