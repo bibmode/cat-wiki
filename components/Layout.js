@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import styles from "../styles/Layout.module.scss";
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
       main: "#E3E1DC",
