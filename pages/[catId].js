@@ -7,11 +7,11 @@ const BreedDetailPage = (props) => {
   return (
     <>
       <Head>
-        <title>{`CatWiki | ${props.cat.breeds[0].name}`}</title>
+        <title>{`CatWiki | ${props.cat?.breeds[0].name}`}</title>
         <link rel="icon" href="devchallenges.png" />
         <meta
           name="description"
-          content={`${props.cat.breeds[0].description}`}
+          content={`${props.cat?.breeds[0].description}`}
         />
       </Head>
       <BreedDetail cat={props.cat} />
