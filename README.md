@@ -42,7 +42,7 @@
 FAQs:
 
 - <b>Where can I see your demo?</b>
-  You can see it here <a href="https://catwiki-gen.vercel.app/">Demo</a>
+  You can see it here <a href="https://catwiki-gen.vercel.app/">Demo</a>.
 - <b>What was your experience?</b>
   Building this app with NextJS was a great learning experience for me. I learned static page generation with Next instead of requesting the API in the client side. NextJS is great because it is like a fullstack React framework with awesome built in features.
 - <b>What have you learned/improved?</b>
