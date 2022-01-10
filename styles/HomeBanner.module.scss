@@ -71,21 +71,6 @@
         display: none;
       }
     }
-
-    &Btn {
-      border-radius: 15px;
-      margin-bottom: 1rem;
-      margin-left: -2px;
-      text-transform: capitalize;
-      font-size: 1.2rem;
-      font-family: "Montserrat";
-      background-color: #fff;
-      color: #291507;
-
-      @media only screen and (min-width: 900px) {
-        display: none;
-      }
-    }
   }
 }
 
@@ -261,15 +246,15 @@
     border-radius: 5px;
   }
 
-  &List {
-    font-size: 1.8rem;
-    border-radius: 2.3rem;
-    width: 100%;
-  }
+  // &List {
+  //   font-size: 1.8rem;
+  //   border-radius: 2.3rem;
+  //   width: 100%;
+  // }
 
-  &Item {
-    width: 100%;
-  }
+  // &Item {
+  //   width: 100%;
+  // }
 }
 
 .lineShort::after {

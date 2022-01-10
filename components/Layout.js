@@ -34,7 +34,7 @@ export const AppContext = createContext("");
 
 const Layout = (props) => {
   const [drawer, setDrawer] = useState(false);
-  const [inputMatch, setInputMatch] = useState([]);
+  const [inputMatch, setInputMatch] = useState(null);
   const [userInput, setUserInput] = useState(null);
 
   const mostSearchedBreeds = [
@@ -88,10 +88,12 @@ const Layout = (props) => {
             setUserInput,
           }}
         >
-          <Container maxWidth="xl" className={styles.wrapper}>
-            <Header />
-            <main>{props.children}</main>
-            <Footer className={styles.footer} />
+          <Container maxWidth="xl">
+            <div className={styles.wrapper}>
+              <Header />
+              <main>{props.children}</main>
+              <Footer className={styles.footer} />
+            </div>
           </Container>
         </AppContext.Provider>
       </ThemeProvider>

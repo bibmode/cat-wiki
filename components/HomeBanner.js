@@ -18,6 +18,32 @@ import Link from "next/link";
 import { AppContext } from "./Layout";
 import { getAllBreeds } from "../utils/data";
 
+import { styled } from "@mui/material";
+
+const MobileButton = styled(Button)(({ theme }) => ({
+  borderRadius: "15px",
+  marginBottom: "1rem",
+  marginLeft: "-2px",
+  textTransform: "capitalize",
+  fontSize: "1.2rem",
+  fontFamily: "Montserrat",
+  backgroundColor: "#fff",
+  color: "#291507",
+  [theme.breakpoints.up("md")]: {
+    display: "none",
+  },
+}));
+
+const OptionsList = styled(List)({
+  fontSize: "1.8rem",
+  borderRadius: "2.3rem",
+  width: "100%",
+});
+
+const OptionsListItem = styled(ListItem)({
+  width: "100%",
+});
+
 const HomeBanner = ({ cats, searchData }) => {
   const {
     setDrawer,
@@ -44,39 +70,39 @@ const HomeBanner = ({ cats, searchData }) => {
             <h2 className={styles.bannerText}>
               Get to know more about your cat breed
             </h2>
+
             <div className={styles.bannerSearchField}>
               <SearchBar setUserInput={setUserInput} />
             </div>
 
             <div
               className={`${styles.options} ${
-                inputMatch?.length == 67 && styles.hidden
+                (inputMatch?.length == 67 || inputMatch?.length == 0) &&
+                styles.hidden
               }`}
             >
-              <List className={styles.optionsList}>
+              <OptionsList>
                 {inputMatch?.map((match, index) => (
                   <div key={index}>
-                    <ListItem
+                    <OptionsListItem
                       onClick={() => navigateBreedDetail(match.id)}
-                      className={styles.optionsItem}
                       button
                     >
                       <ListItemText primary={match.name} />
-                    </ListItem>
+                    </OptionsListItem>
                     <Divider />
                   </div>
                 ))}
-              </List>
+              </OptionsList>
             </div>
 
-            <Button
-              className={styles.bannerSearchBtn}
+            <MobileButton
               variant="contained"
               endIcon={<Search />}
               onClick={() => setDrawer(true)}
             >
               Search
-            </Button>
+            </MobileButton>
           </div>
         </Container>
       </div>

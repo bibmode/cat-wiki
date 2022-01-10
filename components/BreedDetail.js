@@ -19,33 +19,35 @@ const BreedDetail = ({ cat }) => {
   const details = cat.breeds[0];
 
   return (
-    <Container className={styles.breed}>
-      <div className={styles.breedImage}>
-        <img src={cat.url} alt="cat detail" />
-      </div>
-      <div className={styles.breedDetails}>
-        <div className={styles.breedDetailsWrapper}>
-          <h2>{details.name}</h2>
-          <p>{details.description}</p>
-          <p>
-            <b>Temperament: </b>
-            {details.temperament}
-          </p>
-          <p>
-            <b>Origin:</b> {details.origin}
-          </p>
-          <p>
-            <b>Life Span:</b> {details.life_span} years
-          </p>
-          {specifications.map((spec, index) => (
-            <CatStatus
-              key={index}
-              stats={details[spec]}
-              name={`${spec[0].toUpperCase()}${spec
-                .slice(1)
-                .replace("_", " ")}`}
-            />
-          ))}
+    <Container>
+      <div className={styles.breed}>
+        <div className={styles.breedImage}>
+          <img src={cat.url} alt="cat detail" />
+        </div>
+        <div className={styles.breedDetails}>
+          <div className={styles.breedDetailsWrapper}>
+            <h2>{details.name}</h2>
+            <p>{details.description}</p>
+            <p>
+              <b>Temperament: </b>
+              {details.temperament}
+            </p>
+            <p>
+              <b>Origin:</b> {details.origin}
+            </p>
+            <p>
+              <b>Life Span:</b> {details.life_span} years
+            </p>
+            {specifications.map((spec, index) => (
+              <CatStatus
+                key={index}
+                stats={details[spec]}
+                name={`${spec[0].toUpperCase()}${spec
+                  .slice(1)
+                  .replace("_", " ")}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </Container>

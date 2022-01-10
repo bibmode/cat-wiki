@@ -15,6 +15,18 @@ import CloseIcon from "@mui/icons-material/Close";
 import SearchBar from "./SearchBar";
 import { AppContext } from "./Layout";
 
+import { styled } from "@mui/material";
+
+const OptionsList = styled(List)({
+  fontSize: "1.8rem",
+  borderRadius: "2.3rem",
+  width: "100%",
+});
+
+const OptionsListItem = styled(ListItem)({
+  width: "100%",
+});
+
 const SearchDrawer = ({ searchData }) => {
   const {
     drawer,
@@ -38,39 +50,42 @@ const SearchDrawer = ({ searchData }) => {
       onOpen={() => setDrawer(true)}
       sx={{ minHeight: "100vh" }}
     >
-      <Container className={styles.drawer}>
-        <IconButton
-          aria-label="close"
-          onClick={() => setDrawer(false)}
-          className={styles.drawerClose}
-        >
-          <CloseIcon />
-        </IconButton>
-        <div className={styles.drawerSearch}>
-          <SearchBar setUserInput={setUserInput} />
-        </div>
+      <Container>
+        <div className={styles.drawer}>
+          <IconButton
+            aria-label="close"
+            onClick={() => setDrawer(false)}
+            className={styles.drawerClose}
+          >
+            <CloseIcon />
+          </IconButton>
+          <div className={styles.drawerSearch}>
+            <SearchBar setUserInput={setUserInput} />
+          </div>
 
-        <div
-          className={`${styles.options} ${
-            inputMatch?.length == 67 && styles.hidden
-          }`}
-        >
-          <List className={styles.optionsList}>
-            {inputMatch?.map((match) => (
-              <>
-                <ListItem
-                  onClick={() => {
-                    navigateBreedDetail(match.id);
-                  }}
-                  className={styles.optionsItem}
-                  button
-                >
-                  <ListItemText primary={match.name} />
-                </ListItem>
-                <Divider />
-              </>
-            ))}
-          </List>
+          <div
+            className={`${styles.options} ${
+              inputMatch?.length == 67 && styles.hidden
+            }`}
+          >
+            <OptionsList className={styles.optionsList}>
+              {inputMatch?.map((match, index) => (
+                <>
+                  <OptionsListItem
+                    key={index}
+                    onClick={() => {
+                      navigateBreedDetail(match.id);
+                    }}
+                    className={styles.optionsItem}
+                    button
+                  >
+                    <ListItemText primary={match.name} />
+                  </OptionsListItem>
+                  <Divider />
+                </>
+              ))}
+            </OptionsList>
+          </div>
         </div>
       </Container>
     </SwipeableDrawer>
