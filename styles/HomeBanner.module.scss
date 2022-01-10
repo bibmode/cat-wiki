@@ -12,7 +12,7 @@
 
   display: flex;
   align-items: center;
-  height: 40vw;
+  height: 42vw;
   max-height: 650px;
   width: 100%;
   position: relative;
@@ -41,6 +41,7 @@
     font-family: "Mystery Quest", cursive;
     font-weight: 400;
     font-size: clamp(1.5rem, 4vw, 5rem);
+    margin-bottom: -0.5rem;
 
     @media only screen and (min-width: 900px) {
       display: none;
@@ -130,7 +131,6 @@
       margin-top: 2.8rem;
 
       @media only screen and (min-width: 600px) {
-        // font-size: 4.8rem;
         width: 60%;
       }
     }
@@ -244,12 +244,12 @@
   z-index: 1000 !important;
   border-radius: 2.3rem;
   padding: 0;
+  margin-left: -0.5rem;
 
   &::-webkit-scrollbar {
     border-radius: 5px;
     width: 5px;
     height: 90%;
-    // border-top-right-radius: 50%;
   }
 
   &::-webkit-scrollbar-thumb {

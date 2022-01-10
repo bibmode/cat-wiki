@@ -16,7 +16,13 @@ const Footer = () => {
           <p>
             created by{" "}
             <b>
-              <u>genevieve navales</u>
+              <a
+                href="https://devchallenges.io/portfolio/bibmode"
+                target="_blank"
+                rel="noreferrer"
+              >
+                genevieve navales
+              </a>
             </b>{" "}
             - devChallenge.io 2021
           </p>

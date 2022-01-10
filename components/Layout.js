@@ -55,10 +55,12 @@ const Layout = (props) => {
   const navigateBreedDetail = (id) => {
     router.push(`/${id}`);
     setDrawer(false);
+    setUserInput(null);
   };
 
   const navigateHome = () => {
     router.push("/");
+    setUserInput(null);
   };
 
   const getMatches = (searchData, userInput) => {
