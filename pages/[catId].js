@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import BreedDetail from "../components/BreedDetail";
 import OtherPhotos from "../components/OtherPhotos";
 import { getBreedData } from "../utils/data";

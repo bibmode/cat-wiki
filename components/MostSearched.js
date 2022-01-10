@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import styles from "../styles/MostSearched.module.scss";
 
 const MostSearched = ({ cats }) => {

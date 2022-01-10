@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MostSearched from "../components/MostSearched";
-import { getBreedData, getBreedImage, mostSearchedBreeds } from "../utils/data";
+import { getBreedData, mostSearchedBreeds } from "../utils/data";
 
 const MostSearchedPage = (props) => {
   return (

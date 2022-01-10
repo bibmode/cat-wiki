@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Header from "../components/Header";
 import HomeArticle from "../components/HomeArticle";
 import HomeBanner from "../components/HomeBanner";
 import SearchDrawer from "../components/SearchDrawer";

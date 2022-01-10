@@ -1,11 +1,4 @@
-import {
-  Divider,
-  InputAdornment,
-  List,
-  ListItem,
-  ListItemText,
-  OutlinedInput,
-} from "@mui/material";
+import { InputAdornment, OutlinedInput } from "@mui/material";
 import styles from "../styles/SearchBar.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
 
